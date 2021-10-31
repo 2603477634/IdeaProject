@@ -1,0 +1,18 @@
+#配置服务器端口信息
+server:
+  port: 8050
+# 配置应用名称
+spring:
+  application:
+     name: order-sentinel  # 应用名称
+  cloud:
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8080
+      web-context-unify: false
+#    nacos:
+#      server-addr: 192.168.10.99:8847 # 路径
+#      discovery:
+#        username: nacos
+#        password:  nacos
+#        namespace: public

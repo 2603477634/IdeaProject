@@ -1,0 +1,38 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8080
+#    nacos:
+#      discovery:
+#        server-addr: 127.0.0.1:8848
+#        username: nacos
+#        password: nacos
+    gateway:
+      routes:
+        - id: order-route
+          uri: lb://alibaba-order-seata
+          predicates:
+            - Path= /order-serv/**
+          filters:
+            - StripPrefix=1
+#     discovery:
+#         locator:
+#           enabled: true
+seata:
+  registry:
+    type: nacos
+    nacos:
+      server-addr:  127.0.0.1:8848
+      username: nacos
+      password:  nacos
+  config:
+    type: nacos
+    nacos:
+      server-addr: 127.0.0.1:8848
+      username:  nacos
+      password:  nacos

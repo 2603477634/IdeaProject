@@ -1,0 +1,14 @@
+#配置服务器端口信息
+server:
+  port: 8021
+# 配置应用名称
+spring:
+  application:
+    name: stock-service  # 应用名称
+  cloud:
+    nacos:
+      server-addr: 192.168.10.99:8847 # 路径
+      discovery:
+        username: nacos
+        password:  nacos
+        namespace: public

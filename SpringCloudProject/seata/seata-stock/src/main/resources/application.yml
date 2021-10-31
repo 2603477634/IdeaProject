@@ -1,0 +1,35 @@
+server:
+  port: 8096
+
+spring:
+  application:
+    name: stock-seata
+  cloud:
+      alibaba:
+        seata:
+          tx-service-group: my_test_tx_group
+  datasource:
+    url: jdbc:mysql://localhost:3306/db_chat?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 192820
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      #初始化大小
+      initialSize: 5
+      #最小值
+      minIdle: 5
+      #最大值
+      maxActive: 20
+      #最大等待时间，配置获取连接等待超时，时间单位都是毫秒ms
+      maxWait: 60000
+
+#mybatis配置
+mybatis:
+  #配置SQL映射文件路径
+  mapper-locations: classpath:mapper/*.xml
+  #配置别名
+  type-aliases-package: com.seata.pojo
+  #驼峰命名
+  configuration:
+    map-underscore-to-camel-case: true
